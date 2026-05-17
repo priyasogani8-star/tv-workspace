@@ -32,7 +32,7 @@ That's it.
 
 ## How to set it up
 
-![Setup Guide](docs/setup-guide.png)
+<img src="docs/setup-guide.png" width="500" alt="Setup Guide">
 
 ---
 
