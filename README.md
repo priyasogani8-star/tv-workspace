@@ -32,18 +32,7 @@ That's it.
 
 ## How to set it up
 
-```mermaid
-flowchart TD
-    A["🛒 What you need\nWindows laptop  ·  TV or monitor  ·  HDMI cable"]
-    A --> B["⏱️ Do these TWO steps once — then never again"]
-    B --> C["1️⃣ Double-click 01-CreateTVUser.bat\nMakes a separate account for the TV"]
-    C --> D["2️⃣ Double-click 02-Setup.bat\nDownloads and installs the software"]
-    D --> E["📅 Every time you want to use the TV"]
-    E --> F["3️⃣ Plug the HDMI cable in · Turn the TV on\nSwitch TV to HDMI input with your remote"]
-    F --> G["4️⃣ Double-click StartTV.bat\nTV lights up · click Yes on the pop-up"]
-    G --> H["5️⃣ Optional · Double-click LockCursor.bat\nKeeps your mouse on the laptop"]
-    H --> I(["✅ Done!  Your TV is now a second screen"])
-```
+![Setup Guide](docs/setup-guide.png)
 
 ---
 
