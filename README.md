@@ -1,4 +1,4 @@
-# TV Workspace
+# Turn Your TV Into a Second Screen
 
 Use your TV as a second screen for your Windows laptop — with its own separate desktop.
 
@@ -33,39 +33,15 @@ That's it.
 
 ```mermaid
 flowchart TD
-    NEED["🛒  First, get these 3 things\n━━━━━━━━━━━━━━━━━━━━━━━━\n💻  A Windows laptop or PC\n📺  A TV or any extra screen\n🔌  An HDMI cable\n      (or USB-C to HDMI adapter)"]
-
-    NEED --> ONCE
-
-    ONCE["⏱️  Do these TWO steps ONCE\n      You will never need to do them again\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"]
-
-    ONCE --> S1
-
-    S1["1️⃣  Double-click  👇\n━━━━━━━━━━━━━━━━\n01-CreateTVUser.bat\n━━━━━━━━━━━━━━━━\nMakes a separate account\nfor the TV — like adding\na new profile on Netflix"]
-
-    S1 --> S2
-
-    S2["2️⃣  Double-click  👇\n━━━━━━━━━━━━━━━\n02-Setup.bat\n━━━━━━━━━━━━━━━\nInstalls the software\nthat makes this work\n(downloads automatically)"]
-
-    S2 --> EVERYTIME
-
-    EVERYTIME["📅  Every time you want to use the TV\n      Just 3 simple steps\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"]
-
-    EVERYTIME --> S3
-
-    S3["3️⃣  Plug in the cable\n━━━━━━━━━━━━━━━━━━\nHDMI cable from laptop to TV\nTurn the TV on\nSwitch TV input to HDMI\n(use your TV remote)"]
-
-    S3 --> S4
-
-    S4["4️⃣  Double-click  👇\n━━━━━━━━━━━━━━\nStartTV.bat\n━━━━━━━━━━━━━━\nThe TV lights up with\nits own Windows desktop\nApprove the pop-up that asks\nfor permission — click Yes"]
-
-    S4 --> S5
-
-    S5["5️⃣  Double-click  👇  optional\n━━━━━━━━━━━━━━━━━━━━━━━\nLockCursor.bat\n━━━━━━━━━━━━━━━━━━━━━━━\nKeeps your mouse on the laptop\nso it does not wander to the TV\nClose this window to turn it off"]
-
-    S5 --> DONE
-
-    DONE(["✅  All done!\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nYour laptop   →  your keyboard, mouse, and apps\nYour TV          →  its own separate screen\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"])
+    A["🛒 What you need\nWindows laptop  ·  TV or monitor  ·  HDMI cable"]
+    A --> B["⏱️ Do these TWO steps once — then never again"]
+    B --> C["1️⃣ Double-click 01-CreateTVUser.bat\nMakes a separate account for the TV"]
+    C --> D["2️⃣ Double-click 02-Setup.bat\nDownloads and installs the software"]
+    D --> E["📅 Every time you want to use the TV"]
+    E --> F["3️⃣ Plug the HDMI cable in · Turn the TV on\nSwitch TV to HDMI input with your remote"]
+    F --> G["4️⃣ Double-click StartTV.bat\nTV lights up · click Yes on the pop-up"]
+    G --> H["5️⃣ Optional · Double-click LockCursor.bat\nKeeps your mouse on the laptop"]
+    H --> I(["✅ Done!  Your TV is now a second screen"])
 ```
 
 ---
@@ -120,4 +96,4 @@ Windows normally does not allow you to open a second desktop session on the same
 
 ## License
 
-MIT — free to use, share, and modify.
+[MIT](LICENSE) — free to use, share, and modify.
