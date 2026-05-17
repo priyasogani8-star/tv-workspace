@@ -36,7 +36,7 @@ $TV_FULLUSER  = "$env:COMPUTERNAME\$TV_USERNAME"
 $WRAP_INI     = "C:\Program Files\RDP Wrapper\rdpwrap.ini"
 $RDP_FILE     = "$PSScriptRoot\TVSession.rdp"
 
-# Multiple community INI sources — tried in order until one works
+# Multiple community INI sources - tried in order until one works
 $INI_SOURCES = @(
     "https://raw.githubusercontent.com/sebaxakerhtc/rdpwrap.ini/master/rdpwrap.ini",
     "https://raw.githubusercontent.com/asmtron/rdpwrap/master/res/rdpwrap.ini",
@@ -80,7 +80,7 @@ function Test-IniSafe {
         }
     }
 
-    # 5. Values must only be hex offsets, numbers, or 0/1 flags — no random strings
+    # 5. Values must only be hex offsets, numbers, or 0/1 flags - no random strings
     $nonIniLines = ($content -split "`n") | Where-Object {
         $_ -notmatch '^\s*$' -and
         $_ -notmatch '^\s*[;#]' -and
@@ -111,13 +111,13 @@ Write-Host "  TV Workspace Starting..." -ForegroundColor White
 Write-Host ""
 
 # ============================================================
-# STEP 1 — DISPLAY: ENSURE EXTENDED (NOT MIRRORED)
+# STEP 1 - DISPLAY: ENSURE EXTENDED (NOT MIRRORED)
 # ============================================================
 Log "Checking display..."
 $screens = [System.Windows.Forms.Screen]::AllScreens
 
 if ($screens.Count -lt 2) {
-    Log "TV not detected — activating..."
+    Log "TV not detected - activating..."
     Start-Process "DisplaySwitch.exe" -ArgumentList "/extend" -WindowStyle Hidden
     Start-Sleep 4
     $screens = [System.Windows.Forms.Screen]::AllScreens
@@ -139,7 +139,7 @@ $tvW = $tv.Bounds.Width;  $tvH = $tv.Bounds.Height
 OK "TV screen: ${tvW}x${tvH}  |  Laptop: $($laptop.Bounds.Width)x$($laptop.Bounds.Height)"
 
 # ============================================================
-# STEP 2 — RDP WRAPPER: AUTO-PATCH IF COMMUNITY UPDATE READY
+# STEP 2 - RDP WRAPPER: AUTO-PATCH IF COMMUNITY UPDATE READY
 # ============================================================
 Log "Checking RDP Wrapper..."
 
@@ -155,7 +155,7 @@ if (Test-Path $WRAP_INI) {
         OK "RDP Wrapper already supports build $tsBuild"
         $rdpReady = $true
     } else {
-        Log "Build $tsBuild not in current INI — searching $($INI_SOURCES.Count) community sources..."
+        Log "Build $tsBuild not in current INI - searching $($INI_SOURCES.Count) community sources..."
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         $patchedIni = $null
 
@@ -178,13 +178,13 @@ if (Test-Path $WRAP_INI) {
             $patchedIni | Out-File -FilePath $WRAP_INI -Encoding UTF8 -Force
             Start-Service TermService -ErrorAction SilentlyContinue
             Start-Sleep 3
-            OK "RDP Wrapper patched for build $tsBuild — ready!"
+            OK "RDP Wrapper patched for build $tsBuild - ready!"
             $rdpReady = $true
         } else {
             Warn "Build $tsBuild not patched by community yet (checked $($INI_SOURCES.Count) sources)."
             Warn ""
             Warn "This happens 0-48 hours after a Windows update."
-            Warn "Try again tomorrow — the script will auto-fix when the patch lands."
+            Warn "Try again tomorrow - the script will auto-fix when the patch lands."
             Warn ""
             Warn "Your workspace and scripts are ready. Just re-run StartTV.bat tomorrow."
             Write-Host ""
@@ -200,7 +200,7 @@ if (Test-Path $WRAP_INI) {
 if (-not $rdpReady) { exit 0 }
 
 # ============================================================
-# STEP 3 — CREDENTIALS: SAVE SILENTLY FOR LOOPBACK
+# STEP 3 - CREDENTIALS: SAVE SILENTLY FOR LOOPBACK
 # ============================================================
 Log "Saving credentials..."
 & cmdkey /delete:TERMSRV/127.0.0.2 2>&1 | Out-Null
@@ -209,7 +209,7 @@ Set-LocalUser -Name $TV_USERNAME -PasswordNeverExpires $true -ErrorAction Silent
 OK "Credentials saved"
 
 # ============================================================
-# STEP 4 — RDP FILE: BUILD SESSION FILE FOR TV
+# STEP 4 - RDP FILE: BUILD SESSION FILE FOR TV
 # ============================================================
 @"
 full address:s:127.0.0.2
@@ -232,12 +232,12 @@ redirectclipboard:i:0
 OK "RDP session file created"
 
 # ============================================================
-# STEP 5 — LAUNCH RDP WINDOW ON TV
+# STEP 5 - LAUNCH RDP WINDOW ON TV
 # ============================================================
 Log "Launching TV session..."
 $mstscPath = "$env:SystemRoot\System32\mstsc.exe"
 if (-not (Test-Path $mstscPath)) {
-    Log "mstsc.exe missing — restoring Remote Desktop feature via DISM..."
+    Log "mstsc.exe missing - restoring Remote Desktop feature via DISM..."
     & dism /online /Enable-Feature /FeatureName:Microsoft-RemoteDesktopConnection /NoRestart 2>&1 | Out-Null
     if (-not (Test-Path $mstscPath)) {
         Fail "mstsc.exe still missing after DISM restore. Restart your PC and try again."
@@ -261,7 +261,7 @@ if ($rdpHwnd -ne [IntPtr]::Zero) {
     [WinApi]::ShowWindow($rdpHwnd, 3)   | Out-Null
     OK "RDP window placed on TV"
 } else {
-    Warn "Could not position RDP window — drag it to the TV manually if needed"
+    Warn "Could not position RDP window - drag it to the TV manually if needed"
 }
 
 Write-Host ""

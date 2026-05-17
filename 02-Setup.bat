@@ -1,5 +1,5 @@
 @echo off
-:: TV Workspace — Step 2: Install & Configure RDP Tools
+:: TV Workspace - Step 2: Install & Configure RDP Tools
 :: Run this ONCE during first-time setup.
 :: Auto-requests admin if needed.
 

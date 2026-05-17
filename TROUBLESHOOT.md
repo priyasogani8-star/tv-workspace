@@ -1,6 +1,6 @@
 # Troubleshooting Guide
 
-Common problems and how to fix them — no technical knowledge needed.
+Common problems and how to fix them; no technical knowledge needed.
 
 ---
 
@@ -50,7 +50,7 @@ Common problems and how to fix them — no technical knowledge needed.
 
 **C) RDP Wrapper isn't working for your Windows build**
 - Open `C:\Program Files\RDP Wrapper\` and run `RDPConf.exe`
-- Look at the status next to "Wrapper state" — it should say "Fully supported"
+- Look at the status next to "Wrapper state"; it should say "Fully supported"
 - If it says "Not supported", run `02-Setup.bat` again or wait 24 hours for the community patch
 
 ---
@@ -74,7 +74,7 @@ Common problems and how to fix them — no technical knowledge needed.
 3. Right-click the zip → **Extract All**
 4. Inside the extracted folder, right-click `RDPWInst.exe` → **Run as administrator**
 5. Click Yes when Windows asks for permission
-6. Run `02-Setup.bat` again — it will verify the installation and download the INI
+6. Run `02-Setup.bat` again; it will verify the installation and download the INI
 
 ---
 
@@ -82,14 +82,14 @@ Common problems and how to fix them — no technical knowledge needed.
 
 **What's happening:** You recently installed a Windows Update, and the RDP Wrapper community hasn't released an update for your exact Windows build yet.
 
-**Fix:** Wait 12–48 hours and run `StartTV.bat` again. The script automatically checks for the patch — you don't need to do anything else.
+**Fix:** Wait 12–48 hours and run `StartTV.bat` again. The script automatically checks for the patch; you don't need to do anything else.
 
 ---
 
 ## Mouse cursor escaped to the TV screen
 
 **Fix:**
-- Run `LockCursor.bat` — it instantly locks the mouse back to the laptop
+- Run `LockCursor.bat`; it instantly locks the mouse back to the laptop
 - Keep the `LockCursor` window open as long as you want the lock active
 - Close that window to freely move the mouse between screens again
 
@@ -108,9 +108,9 @@ Common problems and how to fix them — no technical knowledge needed.
 
 ## After a Windows Update, everything stopped working
 
-**Fix — in order:**
+**Fix, in order:**
 1. Restart your PC first (if not already done after the update)
-2. Run `StartTV.bat` — it auto-patches RDP Wrapper
+2. Run `StartTV.bat`; it auto-patches RDP Wrapper
 3. If it says "not patched yet", wait 24 hours and try again
 4. If you wait 48+ hours and it still doesn't work, run `02-Setup.bat` to force a fresh INI download
 

@@ -1,5 +1,5 @@
 @echo off
-:: TV Workspace — Check Setup Status
+:: TV Workspace - Check Setup Status
 :: Shows green/red for every requirement.
 :: No admin needed.
 

@@ -7,13 +7,13 @@ flowchart TD
 
     NEED(["🛒  First, get these 3 things\n━━━━━━━━━━━━━━━━━━━━━━━━\n💻  A Windows laptop or PC\n📺  A TV or any extra screen\n🔌  An HDMI cable\n      (or USB-C to HDMI adapter)"]):::need
 
-    NEED --> S1["1️⃣  Double-click  👇\n━━━━━━━━━━━━━━━━\n01-CreateTVUser.bat\n━━━━━━━━━━━━━━━━\nMakes a separate account\nfor the TV — like adding\na new profile on Netflix"]:::once
+    NEED --> S1["1️⃣  Double-click  👇\n━━━━━━━━━━━━━━━━\n01-CreateTVUser.bat\n━━━━━━━━━━━━━━━━\nMakes a separate account\nfor the TV, like adding\na new profile on Netflix"]:::once
 
     NEED --> S2["2️⃣  Double-click  👇\n━━━━━━━━━━━━━━━\n02-Setup.bat\n━━━━━━━━━━━━━━━\nInstalls the software\nthat makes this work\n(downloads automatically)"]:::once
 
     S1 & S2 --> S3["3️⃣  Plug in the cable\n━━━━━━━━━━━━━━━━━━\nHDMI cable from laptop to TV\nTurn the TV on\nSwitch TV input to HDMI\n(use your TV remote)"]:::daily
 
-    S3 --> S4["4️⃣  Double-click  👇\n━━━━━━━━━━━━━━\nStartTV.bat\n━━━━━━━━━━━━━━\nThe TV lights up with\nits own Windows desktop\nApprove the pop-up — click Yes"]:::daily
+    S3 --> S4["4️⃣  Double-click  👇\n━━━━━━━━━━━━━━\nStartTV.bat\n━━━━━━━━━━━━━━\nThe TV lights up with\nits own Windows desktop\nApprove the pop-up; click Yes"]:::daily
 
     S4 --> S5["5️⃣  Double-click  👇  optional\n━━━━━━━━━━━━━━━━━━━━━━━\nLockCursor.bat\n━━━━━━━━━━━━━━━━━━━━━━━\nKeeps your mouse on the laptop\nso it does not wander to the TV\nClose this window to turn it off"]:::daily
 

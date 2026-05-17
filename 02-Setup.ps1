@@ -1,5 +1,5 @@
 # ============================================================
-# TV Workspace — 02-Setup.ps1
+# TV Workspace - 02-Setup.ps1
 # One-time setup: enables Remote Desktop, installs RDP Wrapper.
 # RDP Wrapper is required to allow loopback RDP on Windows
 # Home editions (which block it by default).
@@ -18,12 +18,12 @@ function Fail($msg) {
 }
 
 Write-Host ""
-Write-Host "  TV Workspace — System Setup" -ForegroundColor White
+Write-Host "  TV Workspace - System Setup" -ForegroundColor White
 Write-Host "  ============================" -ForegroundColor DarkGray
 Write-Host ""
 
 # ============================================================
-# CHECK 1 — WINDOWS VERSION
+# CHECK 1 - WINDOWS VERSION
 # ============================================================
 Log "Checking Windows version..."
 $osVer = [System.Environment]::OSVersion.Version
@@ -37,7 +37,7 @@ if ($osVer.Major -lt 10) {
 }
 
 # ============================================================
-# CHECK 2 — ENABLE REMOTE DESKTOP
+# CHECK 2 - ENABLE REMOTE DESKTOP
 # ============================================================
 Log "Enabling Remote Desktop..."
 
@@ -64,7 +64,7 @@ try {
 }
 
 # ============================================================
-# CHECK 3 — RDP WRAPPER
+# CHECK 3 - RDP WRAPPER
 # ============================================================
 Log "Checking RDP Wrapper..."
 
@@ -82,7 +82,7 @@ if (Test-Path $rdpwrapExe) {
     if (Test-Path $rdpwrapIni) {
         $iniContent = Get-Content $rdpwrapIni -Raw
         if ($iniContent -match [regex]::Escape($tsBuild)) {
-            OK "INI supports current Windows build ($tsBuild) — all good!"
+            OK "INI supports current Windows build ($tsBuild) - all good!"
         } else {
             Warn "INI may not support build $tsBuild yet."
             Warn "StartTV.bat will try to auto-update the INI when you run it."
@@ -149,7 +149,7 @@ if (Test-Path $rdpwrapExe) {
 }
 
 # ============================================================
-# CHECK 4 — DOWNLOAD COMMUNITY INI (for current build)
+# CHECK 4 - DOWNLOAD COMMUNITY INI (for current build)
 # ============================================================
 Log "Checking community INI for build $tsBuild..."
 
@@ -186,12 +186,12 @@ if ($bestIni -and (Test-Path $rdpwrapIni)) {
     Start-Sleep 2
     OK "Community INI applied"
 } elseif (-not $bestIni) {
-    Warn "Could not reach any INI source — check your internet connection."
+    Warn "Could not reach any INI source - check your internet connection."
     Warn "StartTV.bat will retry this automatically each time you run it."
 }
 
 # ============================================================
-# CHECK 5 — VERIFY CONFIG FILE EXISTS
+# CHECK 5 - VERIFY CONFIG FILE EXISTS
 # ============================================================
 $configFile = "$PSScriptRoot\tv-config.local.ps1"
 if (-not (Test-Path $configFile)) {

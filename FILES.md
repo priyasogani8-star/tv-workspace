@@ -22,5 +22,5 @@
 2. **First time only:** Run `02-Setup.bat` (installs RDP Wrapper)
 3. **Optional check:** Run `CheckStatus.bat` to verify everything is ready
 4. Plug in HDMI cable, turn TV on
-5. Run `StartTV.bat` (approve UAC) — TV session launches
+5. Run `StartTV.bat` (approve UAC); TV session launches
 6. Run `LockCursor.bat` to lock the mouse to the laptop screen

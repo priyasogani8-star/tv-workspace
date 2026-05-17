@@ -1,11 +1,11 @@
 # ============================================================
-# TV Workspace — 01-CreateTVUser.ps1
+# TV Workspace - 01-CreateTVUser.ps1
 # Creates a separate Windows user account for TV sessions.
 # Saves credentials so StartTV.bat can log in automatically.
 # Run this ONCE during first-time setup.
 # ============================================================
 
-# ===== CONFIGURATION — you can change this =====
+# ===== CONFIGURATION - you can change this =====
 $TV_USERNAME = "TVUser"   # Name for the TV session account
 # ===============================================
 
@@ -21,7 +21,7 @@ function Fail($msg) {
 }
 
 Write-Host ""
-Write-Host "  TV Workspace — User Account Setup" -ForegroundColor White
+Write-Host "  TV Workspace - User Account Setup" -ForegroundColor White
 Write-Host "  ===================================" -ForegroundColor DarkGray
 Write-Host ""
 
@@ -37,7 +37,7 @@ if ($existingUser) {
     Write-Host ""
     Write-Host "  Choose a password for the TV account." -ForegroundColor White
     Write-Host "  This will be saved locally for auto-login." -ForegroundColor Gray
-    Write-Host "  (You can use any password — it stays on this PC only)" -ForegroundColor Gray
+    Write-Host "  (You can use any password - it stays on this PC only)" -ForegroundColor Gray
     Write-Host ""
 
     $pass1 = Read-Host "  Enter password" -AsSecureString
@@ -77,7 +77,7 @@ Write-Host ""
 Log "Saving credentials for auto-login..."
 Write-Host ""
 Write-Host "  Enter the password for '$TV_USERNAME' to save for auto-login." -ForegroundColor White
-Write-Host "  (This is stored locally in tv-config.local.ps1 — never uploaded)" -ForegroundColor Gray
+Write-Host "  (This is stored locally in tv-config.local.ps1 - never uploaded)" -ForegroundColor Gray
 Write-Host ""
 
 $savedPass = Read-Host "  Password for '$TV_USERNAME'" -AsSecureString
@@ -91,7 +91,7 @@ $ctx = New-Object System.DirectoryServices.AccountManagement.PrincipalContext(
 $valid = $ctx.ValidateCredentials($TV_USERNAME, $savedPassPlain)
 
 if (-not $valid) {
-    Warn "Password did not match the account. Config saved anyway — double-check if login fails."
+    Warn "Password did not match the account. Config saved anyway - double-check if login fails."
 } else {
     OK "Password verified"
 }

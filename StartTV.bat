@@ -1,5 +1,5 @@
 @echo off
-:: TV Workspace Launcher — Double-click to start
+:: TV Workspace Launcher - Double-click to start
 :: Auto-requests admin if needed, no extra windows
 
 NET SESSION >nul 2>&1

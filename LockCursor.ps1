@@ -36,7 +36,7 @@ Write-Host "  |  CLOSE THIS WINDOW to unlock          |" -ForegroundColor Cyan
 Write-Host "  +---------------------------------------+" -ForegroundColor Cyan
 Write-Host ""
 
-# Re-apply every 200ms — prevents apps/Windows from releasing the lock on focus change
+# Re-apply every 200ms - prevents apps/Windows from releasing the lock on focus change
 try {
     while ($true) {
         [CursorLock]::ClipCursor([ref]$r) | Out-Null

@@ -1,5 +1,5 @@
 # ============================================================
-# TV Workspace — CheckStatus.ps1
+# TV Workspace - CheckStatus.ps1
 # Checks all requirements and shows green/red for each.
 # Run this any time to see what's working and what's not.
 # No admin required.
@@ -28,7 +28,7 @@ function Section($title) {
 }
 
 Write-Host ""
-Write-Host "  TV Workspace — Status Check" -ForegroundColor Cyan
+Write-Host "  TV Workspace - Status Check" -ForegroundColor Cyan
 Write-Host "  =============================" -ForegroundColor DarkGray
 
 # ============================================================
@@ -43,7 +43,7 @@ $winName = (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion
 if ($os.Major -ge 10) {
     Pass "$winName  (Build $build)"
 } else {
-    Fail "$winName — Windows 10 or 11 required" "Upgrade your Windows version"
+    Fail "$winName - Windows 10 or 11 required" "Upgrade your Windows version"
 }
 
 # ============================================================
@@ -56,7 +56,7 @@ if ($screens.Count -ge 2) {
     $tv = $screens | Where-Object { -not $_.Primary } | Select-Object -First 1
     Pass "$($screens.Count) screens detected  (TV/monitor: $($tv.Bounds.Width)x$($tv.Bounds.Height))"
 } else {
-    Warn "Only 1 screen detected — TV/monitor not connected" "Plug in your HDMI cable and turn the TV on, then re-run this check"
+    Warn "Only 1 screen detected - TV/monitor not connected" "Plug in your HDMI cable and turn the TV on, then re-run this check"
 }
 
 $rdpEnabled = (Get-ItemProperty "HKLM:\System\CurrentControlSet\Control\Terminal Server" -ErrorAction SilentlyContinue).fDenyTSConnections
@@ -90,7 +90,7 @@ if (Test-Path $rdpwrapIni) {
     if ($iniContent -match [regex]::Escape($tsBuild)) {
         Pass "INI supports current Windows build ($tsBuild)"
     } else {
-        Warn "INI may not support current build ($tsBuild)" "Run StartTV.bat — it auto-downloads the patch, or wait 24h after a Windows Update"
+        Warn "INI may not support current build ($tsBuild)" "Run StartTV.bat - it auto-downloads the patch, or wait 24h after a Windows Update"
     }
 } else {
     Fail "rdpwrap.ini not found" "Run 02-Setup.bat to download it"
@@ -106,7 +106,7 @@ if ($rdpwrapSvc) {
     }
 } else {
     if (Test-Path $rdpwrapExe) {
-        Warn "RDPWrap service not found — may need reinstall" "Run 02-Setup.bat"
+        Warn "RDPWrap service not found - may need reinstall" "Run 02-Setup.bat"
     }
 }
 
@@ -156,7 +156,7 @@ if (Test-Path $configFile) {
         Fail "Windows user '$TV_USERNAME' does not exist" "Run 01-CreateTVUser.bat to create it"
     }
 } else {
-    Fail "Config file missing  (tv-config.local.ps1)" "Run 01-CreateTVUser.bat — it creates this file"
+    Fail "Config file missing  (tv-config.local.ps1)" "Run 01-CreateTVUser.bat - it creates this file"
 }
 
 # Check Credential Manager
@@ -164,7 +164,7 @@ $credCheck = & cmdkey /list:TERMSRV/127.0.0.2 2>&1
 if ($credCheck -match "127.0.0.2") {
     Pass "Credentials saved in Windows Credential Manager"
 } else {
-    Warn "Credential Manager entry not found for 127.0.0.2" "Run StartTV.bat once — it saves credentials automatically"
+    Warn "Credential Manager entry not found for 127.0.0.2" "Run StartTV.bat once - it saves credentials automatically"
 }
 
 # ============================================================

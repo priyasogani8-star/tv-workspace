@@ -1,5 +1,5 @@
 @echo off
-:: TV Workspace — Step 1: Create TV User Account
+:: TV Workspace - Step 1: Create TV User Account
 :: Run this ONCE during first-time setup.
 :: Auto-requests admin if needed.
 

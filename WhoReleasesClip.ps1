@@ -1,6 +1,6 @@
 # ============================================================
 # WhoReleasesClip.ps1
-# Monitors ClipCursor releases — logs which process/window
+# Monitors ClipCursor releases - logs which process/window
 # was in the foreground each time the lock gets cleared.
 # Run this, then do normal activity (click around, open apps).
 # Press Ctrl+C to stop and see the report.
